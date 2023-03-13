@@ -1,0 +1,157 @@
+/* Path: css\style_index.css */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Poppins', sans-serif;
+    src: url('https://fonts.google.com/specimen/Poppins:200,300,400,500,600,700,800,900&display=swap');
+}
+
+@font-face {
+    font-family: 'Quicksand', sans-serif;
+    src: url('https://fonts.google.com/specimen/Quicksand?query=quicksand');
+}
+
+section{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+}
+
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo
+{
+    position: relative;
+    max-width: 80px;
+}
+
+header ul
+{
+    position: relative;
+    display: flex;
+}
+
+header ul li
+{
+    list-style: none;
+}
+
+header ul li a
+{
+    display: inline-block;
+    color: #000;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 18;
+    text-transform: uppercase;
+    margin-left: 40px;
+    text-decoration: none;
+}
+
+.content
+{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content .textBox
+{
+    position: relative;
+    max-width: 600px;
+}
+
+.content .textBox h2
+{
+    color: #000;
+    font-size: 1.4em;
+    line-height: 1.4em;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.content .textBox h2 span
+{
+    color: #BF245D;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 3em;
+    font-weight: 600;
+}
+
+.content .textBox p
+{
+    color: #000;
+    font-size: 1.1em;
+    line-height: 1.4em;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 300;
+    padding-bottom: 15px;
+}
+
+.content .textBox p span
+{
+    color: #000;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.3em;
+    font-weight: 300;
+    float: left;
+    padding-top: 20px;
+    padding-right: 40%;
+}
+
+.content .imgBox
+{
+    width: 600px;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 50px;
+    margin-top: 50px;
+}
+
+.content .imgBox img
+{
+    max-width: 850px;
+}
+
+.thumb
+{
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.thumb li
+{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    cursor: pointer;
+}
+
+.thumb li img
+{
+    max-width: 80px;
+}
