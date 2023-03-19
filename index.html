@@ -11,9 +11,11 @@
 </head>
 <body>
     <section>
+        <div class="circle"></div>
         <header>
             <a href="index.html"><img src="img/logo.png" alt="logo" class="logo"></a>
-            <ul>
+            <div class="toggle" onclick="toggleMenu();"></div>
+            <ul class="navigation">
                 <li><a href="#">Productos</a></li>
                 <li><a href="#">Sucursales</a></li>
                 <li><a href="#">Iniciar sesión</a></li>
@@ -22,8 +24,8 @@
 
         <div class="content">
             <div class="textBox">
-                <h2>Repostería Fina y de alta calidad para esos momentos tan dulces y especiales.<br><br><span>Title</span></h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.<br><span>Price</span></p>
+                <h2>Repostería Fina y de alta calidad para esos momentos tan dulces y especiales.<br><br><span id="title">Selva Negra</span></h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ornare eget velit vel finibus. Etiam sed dui non erat vestibulum iaculis quis non est. <br><span>$230</span></p>
                 <button>
                     <div class="svg-wrapper">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16"> 
@@ -35,17 +37,26 @@
             </div>
 
             <div class="imgBox">
-                <img src="img/pastel.png" alt="pastel" class="productos">
+                <img src="img/pastel.png" alt="pastel" class="nuevos">
             </div>
         </div>
 
         <ul class="thumb">
-            <li><img src="img/pay-fresa.png"></li>
-            <li><img src="img/waffle.png"></li>
-            <li><img src="img/bebida-fresa.png"></li>
+            <li><img src="img/pastel.png" onclick="imgSlider('img/pastel.png');changeTitle(0)"></li>
+            <li><img src="img/pay-fresa.png" onclick="imgSlider('img/pay-fresa.png');changeTitle(1)"></li>
+            <li><img src="img/waffle.png" onclick="imgSlider('img/waffle.png');changeTitle(2)"></li>
+            <li><img src="img/bebida-fresa.png" onclick="imgSlider('img/bebida-fresa.png');changeTitle(3)"></li>
         </ul>
 
+        <ul class="sci">
+            <li><a href="#"><img src="img/facebook.png" style="max-width: 50px;"></a></li>
+            <li><a href="#"><img src="img/instagram.png" style="max-width: 40px;"></a></li>
+        </ul>
         
     </section>
+
+    <script type="text/javascript" src="js/script_index.js">
+
+    </script>
 </body>
 </html>

@@ -1,19 +1,11 @@
 /* Path: css\style_index.css */
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600,700&display=swap');
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-@font-face {
-    font-family: 'Poppins', sans-serif;
-    src: url('https://fonts.google.com/specimen/Poppins:200,300,400,500,600,700,800,900&display=swap');
-}
-
-@font-face {
-    font-family: 'Quicksand', sans-serif;
-    src: url('https://fonts.google.com/specimen/Quicksand?query=quicksand');
 }
 
 section{
@@ -62,7 +54,6 @@ header ul li a
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
     font-size: 18;
-    text-transform: uppercase;
     margin-left: 40px;
     text-decoration: none;
 }
@@ -105,7 +96,8 @@ header ul li a
     font-size: 1.1em;
     line-height: 1.4em;
     font-family: 'Quicksand', sans-serif;
-    font-weight: 300;
+    font-weight: 400;
+    padding-top: 15px;
     padding-bottom: 15px;
 }
 
@@ -114,7 +106,7 @@ header ul li a
     color: #000;
     font-family: 'Quicksand', sans-serif;
     font-size: 1.3em;
-    font-weight: 300;
+    font-weight: 400;
     float: left;
     padding-top: 20px;
     padding-right: 40%;
@@ -124,7 +116,7 @@ header ul li a
 {
     width: 600px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     padding-right: 50px;
     margin-top: 50px;
 }
@@ -132,14 +124,16 @@ header ul li a
 .content .imgBox img
 {
     max-width: 850px;
+    max-height: 450px;
 }
 
 .thumb
 {
     position: absolute;
-    left: 50%;
+    left: 80%;
     bottom: 20px;
     transform: translateX(-50%);
+    align-items: flex-end;
     display: flex;
 }
 
@@ -149,9 +143,162 @@ header ul li a
     display: inline-block;
     margin: 0 20px;
     cursor: pointer;
+    transition: 0.5s;
+}
+
+.thumb li:hover
+{
+    transform: translateY(-15px);
 }
 
 .thumb li img
 {
     max-width: 80px;
+    max-height: 80px;
+}
+
+.sci
+{
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.sci li
+{
+    list-style: none;
+}
+
+.sci li a
+{
+    display: inline-block;
+    margin: 5px 0;
+    transform: scale(0.6);
+}
+
+.circle
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #D98B99;
+    clip-path: circle(600px at right 750px);
+}
+
+@media (max-width: 991px)
+{
+    header 
+    {
+        padding: 20px;
+    }
+
+    header .logo
+    {
+        max-width: 60px;
+    }
+
+    header ul
+    {
+        display: none;
+    }
+    .toggle
+    {
+        position: relative;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        background: url(/img/menu.png);
+        background-size: 30px;
+        background-position: center;
+        background-repeat: no-repeat;
+        filter: invert(1);
+        z-index: 11;
+    }
+    .toggle.active
+    {
+        position: fixed;
+        right: 20px;
+        background: url(/img/close.png);
+        background-size: 25px;
+        background-position: center;
+        background-repeat: no-repeat;
+        filter: invert(1);
+    }
+    header ul.navigation.active
+    {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: #fff;
+        z-index: 10;
+    }
+    header ul li a {
+        font-size: 1.5em;
+        margin: 5px 0;
+    }
+    section
+    {
+        padding: 20px 20px 120px;
+    }
+    .content
+    {
+        flex-direction: column;
+        margin-top: 100px;
+    }
+    .content .textBox h2
+    {
+        font-size: 1.2em;
+        margin-bottom: 15px;
+    }
+    .content .textBox h2 span
+    {
+        font-size: 2.5em;
+    }
+    .content textBox
+    {
+        max-width: 100%;
+    }
+    .content .imgBox
+    {
+        max-width: 100%;
+        justify-content: center;
+    }
+    .content .imgBox img
+    {
+        max-width: 400px;
+        max-height: 400px;
+    }
+    .thumb
+    {
+        left: 50%;
+    }
+    .thumb li img
+    {
+        max-width: 60px;
+    }
+    .circle
+    {
+        clip-path: circle(400px at center bottom);
+    }
+    .sci
+    {
+        background: #BF245D;
+        right: 0;
+        width: 50px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
 }

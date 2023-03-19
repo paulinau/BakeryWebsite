@@ -39,7 +39,7 @@ button:hover svg {
 }
 
 button:hover span {
-  transform: translateX(9em);
+  transform: translateX(9.5em);
 }
 
 button:active {
