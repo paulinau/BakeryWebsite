@@ -20,20 +20,24 @@ section{
 }
 
 header{
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     padding: 20px 100px;
+    z-index: 100000;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: #fff;
+    box-shadow: 0 4px 11px rgb(14 55 54 / 14%);
+    padding: 15px 10%;
 }
 
 header .logo
 {
     position: relative;
-    max-width: 80px;
+    max-width: 60px;
 }
 
 header ul

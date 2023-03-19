@@ -1,3 +1,9 @@
+// La nav bar siempre estara arriba
+window.addEventListener('scroll', function(){
+    var header = document.querySelector('header');
+    header.classList.toggle('sticky', window.scrollY > 0);
+});
+
 // Funcion para cambiar la imagen de cada pastel
 function imgSlider(anything){
     document.querySelector('.nuevos').src = anything;
