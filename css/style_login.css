@@ -11,7 +11,7 @@
 
 body
 {
-    background: #fff;
+    background: #F2C1BD;
 }
 
 .container
@@ -23,6 +23,11 @@ body
     background-image: url('/img/login-cake.jpg');
     background-position: center center;
     background-repeat: no-repeat;
+}
+
+.bg2 {
+    background-image: url('/img/register-cake.jpg');
+    background-position: center center;
 }
 
 .bg-color {

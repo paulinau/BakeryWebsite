@@ -266,6 +266,7 @@ header ul li a
     color: #fff;
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
+    font-size: 15px;
 }
 
 @media (max-width: 991px)
