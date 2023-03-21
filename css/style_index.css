@@ -264,6 +264,8 @@ header ul li a
     padding: 20px 0;
     text-align: center;
     color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
 }
 
 @media (max-width: 991px)

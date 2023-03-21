@@ -1,0 +1,36 @@
+/* Path: css\login.css */
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600,700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body
+{
+    background: #fff;
+}
+
+.container
+{
+    background: #F2EAD0;
+}
+
+.bg {
+    background-image: url('/img/login-cake.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.bg-color {
+    background: #BF245D;
+    color: #fff;
+}
+
+.my-3 span a {
+    color: #BF245D;
+    text-decoration: none;
+}
