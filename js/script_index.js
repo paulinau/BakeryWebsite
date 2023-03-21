@@ -24,3 +24,8 @@ function toggleMenu(){
     menuToggle.classList.toggle('active');
     navigation.classList.toggle('active');
 }
+
+// Funcion para abrir una ventana
+function openPage(pageUrl){
+    window.location.href=pageUrl;
+}
