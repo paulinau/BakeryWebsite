@@ -11,7 +11,7 @@
 
 section
 {
-    margin: 0 100px 50px 100px;
+    margin: 0 60px 50px 60px;
 }
 
 header .logo {
@@ -34,7 +34,8 @@ header ul li a
 .carousel .carousel-item  img 
 {
     width:100%;
-    height:650px;
+    height:700px;
+    margin-bottom: 1rem;
 }
 
 section h3
@@ -46,6 +47,51 @@ section h3
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
     margin-bottom: 50px;
+}
+
+.card
+{
+    width: 100%;
+    height: 600px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card .face
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: 0.5s;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden;
+}
+
+.card .front
+{
+    transform: rotateY(0deg);
+}
+
+.card .back
+{
+    transform: rotateY(180deg);
+}
+
+.card:hover .front
+{
+    transform: rotateY(180deg);
+}
+
+.card:hover .back
+{
+    transform: rotateY(360deg);
+}
+
+.card-body {
+    margin-top: 400px;
 }
 
 .card-group .card img {
@@ -86,10 +132,23 @@ section h3
 
 @media screen and (max-width: 771px) {
 
+    .card{
+        height: 470px;
+    }
     .card-group .card img {
         width: 100%;
         height: 200px;
         align-items: center;
+    }
+
+    .card-group .card iframe {
+        width: 100%;
+        height: 200px;
+        align-items: center;
+    }
+
+    .card-body {
+        margin-top: 200px;
     }
 
     .section h3
