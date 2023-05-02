@@ -26,6 +26,7 @@ function toggleMenu(){
 }
 
 // Funcion para abrir una ventana
+/*
 function openPage(pageUrl){
     window.location.href=pageUrl;
-}
+}*/

@@ -9,9 +9,22 @@
     box-sizing: border-box;
 }
 
-section h2
+.portada
 {
-    margin-top: 1rem;
+    height: 100%;
+    width: 100vw;
+    max-width: fit-content;
+    margin: auto;
+}
+
+img
+{
+    max-width: 100%;
+}
+
+.title-section h3
+{
+    margin-top: 2rem;
     align-items: center;
     text-align: center;
     color: #000;
