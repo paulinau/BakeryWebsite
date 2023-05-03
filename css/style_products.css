@@ -24,11 +24,111 @@ img
 
 .title-section h3
 {
-    margin-top: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 0;
     align-items: center;
     text-align: center;
-    color: #000;
+    /*color: #fff;*/
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
-    margin-bottom: 50px;
+}
+
+.products-section
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card
+{
+    margin: 0 10px;
+    width: 300px;
+    height: min-content;
+    padding: 25px;
+    margin: 0 5px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgb(0,0,0,0.85);
+}
+
+.card .card-img
+{
+    width: 100%;
+    text-align: center;
+}
+
+.card .card-img img
+{
+    height: 200px;
+    margin: -150px 0 15px 0;
+    filter: drop-shadow(0 8px 8px #cdd5e2);
+    transition: 0.3s;
+}
+
+.card:hover .card-img img
+{
+    height: 240px;
+}
+
+.card .card-title h4
+{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-align: center;
+    color: #000;
+    margin-bottom: 15px;
+}
+
+.card .card-details
+{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    text-align: end;
+    width: 100%;
+}
+
+.card .card-details span
+{
+    justify-content: left;
+    text-align: left;
+    font-size: 18px;
+    color: #D98B99;
+}
+
+.card .card-title p
+{
+    text-align: left;
+    font-size: 16px;
+    margin-top: -4px;
+    font-weight: normal;
+}
+
+.card .card-details p
+{
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: -2px;
+}
+
+.card button
+{
+    width: 70%;
+    height:40px;
+    color: #fff;
+    background-color: #BF245D;
+    border-radius: 30px;
+    font-size: 20px;
+    font-weight: 900;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.card button:hover
+{
+    background-color: #0D0D0D;
 }
