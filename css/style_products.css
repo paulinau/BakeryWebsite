@@ -25,7 +25,6 @@ img
 .title-section h3
 {
     margin-top: 3rem;
-    margin-bottom: 0;
     align-items: center;
     text-align: center;
     /*color: #fff;*/
@@ -36,22 +35,26 @@ img
 .products-section
 {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    flex-direction: row;
+    /*flex-wrap: wrap;*/
+    justify-content: space-around;
+    flex-flow: wrap;
+    align-items: left;
+    height: 100%;
 }
 
 .card
 {
-    margin: 0 10px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     width: 300px;
     height: min-content;
     padding: 25px;
-    margin: 0 5px;
-    background-color: #fff;
+    margin: 90px 5px;
     border-radius: 8px;
-    box-shadow: 0 0 20px rgb(0,0,0,0.85);
 }
 
 .card .card-img
