@@ -19,9 +19,15 @@
         //Valida si el token del usuario es el mismo que el que se genera
         if($token == $token_tmp)
         {
-            $sql = $con->prepare("SELECT id, nombre, descripcion, precio, porciones, id_categoria FROM productos WHERE activo=1");
-            $sql->execute();
-            $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
+            $sql = $con->prepare("SELECT count(id) FROM productos WHERE id=? AND activo=1 LIMIT 1");
+            $sql->execute([$id]);
+
+            if($sql->fetchColumn() > 0)
+            {
+                $sql = $con->prepare("SELECT id, nombre, descripcion, precio, porciones, id_categoria FROM productos WHERE activo=1");
+                $sql->execute([$id]);
+                $row = $sql ->fetch(PDO::FETCH_ASSOC);
+            }
         }
         else
         {
