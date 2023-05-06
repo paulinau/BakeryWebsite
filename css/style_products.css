@@ -186,6 +186,7 @@ img
     cursor: pointer;
     transition: 0.5s;
     justify-content: center;
+    border: none;
 }
 
 .card button:hover

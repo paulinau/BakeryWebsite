@@ -20,13 +20,13 @@ body
 }
 
 .bg {
-    background-image: url('/img/login-cake.jpg');
+    background-image: url('../img/login-cake.jpg');
     background-position: center center;
     background-repeat: no-repeat;
 }
 
 .bg2 {
-    background-image: url('/img/register-cake.jpg');
+    background-image: url('../img/register-cake.jpg');
     background-position: center center;
 }
 
