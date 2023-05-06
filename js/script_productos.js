@@ -1,6 +1,7 @@
 const buttons = document.querySelectorAll('.button-value');
 const cards = document.querySelectorAll('.card');
 
+// Filtrar productos según su categoría
 buttons.forEach(button => {
     button.addEventListener('click', () => {
         const category = button.dataset.category;
@@ -23,3 +24,24 @@ buttons.forEach(button => {
         });
     });
 });
+
+// Filtrar productos según su nombre
+document.getElementById("search").addEventListener("click", function() {
+    filterProducts();
+});
+
+
+function filterProducts() {
+    var input = document.getElementById("search-input");
+    var filter = input.value.toUpperCase();
+    var products = document.getElementById("products-section").getElementsByClassName("card");
+
+    for (var i = 0; i < products.length; i++) {
+        var title = products[i].getElementsByClassName("card-title")[0].getElementsByTagName("h4")[0];
+        if (title.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            products[i].style.display = "";
+        } else {
+            products[i].style.display = "none";
+        }
+    }
+}

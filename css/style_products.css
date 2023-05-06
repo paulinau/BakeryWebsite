@@ -185,6 +185,7 @@ img
     font-weight: 900;
     cursor: pointer;
     transition: 0.5s;
+    justify-content: center;
 }
 
 .card button:hover

@@ -1,13 +1,11 @@
 <?php
+    require 'config/database.php';
+    $db = new Database();
+    $con = $db->conectar();
 
-require 'config/database.php';
-$db = new Database();
-$con = $db->conectar();
-
-$sql = $con->prepare("SELECT id, nombre, descripcion, precio, porciones, id_categoria FROM productos WHERE activo=1");
-$sql->execute();
-$resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
-
+    $sql = $con->prepare("SELECT id, nombre, descripcion, precio, porciones, id_categoria FROM productos WHERE activo=1");
+    $sql->execute();
+    $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -57,7 +55,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
                 <button class="button-value" data-category=3>Postres</button>
             </div>
         </div>
-        <div class="products-section">
+        <div class="products-section" id="products-section">
             <?php foreach ($resultado as $row) { ?>
                 <div class="card <?php echo $row['id_categoria']; ?>">
                     <div class="card-img">
