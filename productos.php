@@ -1,11 +1,35 @@
 <?php
+    require 'config/config.php';
     require 'config/database.php';
     $db = new Database();
     $con = $db->conectar();
 
-    $sql = $con->prepare("SELECT id, nombre, descripcion, precio, porciones, id_categoria FROM productos WHERE activo=1");
-    $sql->execute();
-    $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
+    $id = isset($_GET['id']) ? $_GET['id'] : '';
+    $token = isset($_GET['token_tmp']) ? $_GET['token_tmp'] : '';
+
+    if($id == '' || $token == '')
+    {
+        echo 'Error al procesar la peticion';
+        exit;
+    }
+    else
+    {
+        $token_tmp = hash_hmac('sha1', $id, KEY_TOKEN);
+
+        //Valida si el token del usuario es el mismo que el que se genera
+        if($token == $token_tmp)
+        {
+            $sql = $con->prepare("SELECT id, nombre, descripcion, precio, porciones, id_categoria FROM productos WHERE activo=1");
+            $sql->execute();
+            $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
+        }
+        else
+        {
+            echo 'Error al procesar la peticion';
+            exit;
+        }
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -85,7 +109,7 @@
                             <p><?php echo $row['porciones']; ?></p>
                         </div>
                     </div>
-                    <button>+</button>
+                    <button onclick="addProducto(<?php echo $id; ?>, '<?php echo $token_tmp; ?>')">+</button>
                 </div>
             <?php } ?>
         </div>
