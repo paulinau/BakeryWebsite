@@ -1,3 +1,15 @@
+<?php
+
+require 'config/database.php';
+$db = new Database();
+$con = $db->conectar();
+
+$sql = $con->prepare("SELECT id, nombre, descripcion, precio, porciones, id_categoria FROM productos WHERE activo=1");
+$sql->execute();
+$resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,7 +22,7 @@
     <link rel="stylesheet" href="css/style_sucursales.css">
     <link rel="stylesheet" href="css/style_products.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Sucursales</title>
+    <title>Productos</title>
 </head>
 <body>
     <section>
@@ -18,7 +30,7 @@
             <a href="index.html"><img src="img/logo.png" alt="logo" class="logo"></a>
             <div class="toggle" onclick="toggleMenu();"></div>
             <ul class="navigation">
-                <li><a href="productos.html">Productos</a></li>
+                <li><a href="productos.php">Productos</a></li>
                 <li><a href="sucursales.html">Sucursales</a></li>
                 <li><a href="iniciar-sesion.html">Iniciar sesión</a></li>
             </ul>
@@ -33,26 +45,37 @@
     </section>
 
     <section div class="products-section">
-        <div class="card">
-            <div class="card-img">
-                <img src="img/products/rebanada-fresa.png" alt="Pastel Fresa">
-            </div>
-            <div class="card-title">
-                <h4>Pastel de Fresa</h4>
-                <p>Lorem ipsum dolor sit amet, consectet</p>
-            </div>
-            <div class="card-details">
-                <div class="price">
-                    <span>Price</span>
-                    <p>$230</p>
+        <?php foreach ($resultado as $row) { ?>
+            <div class="card">
+                <div class="card-img">
+                    <?php 
+                        $id = $row['id_categoria'];
+                        $imagen = "img/products/" . $id . "/" . strtolower($row['nombre']) . ".png";
+
+                        if(!file_exists($imagen))
+                        {
+                            $imagen = "img/products/default.png";
+                        }
+                    ?>
+                    <img src="<?php echo $imagen; ?>">
                 </div>
-                <div class="portions">
-                    <span>Porciones</span>
-                    <p>10</p>
+                <div class="card-title">
+                    <h4><?php echo $row['nombre']; ?></h4>
+                    <p><?php echo $row['descripcion']; ?></p>
                 </div>
+                <div class="card-details">
+                    <div class="price">
+                        <span>Price</span>
+                        <p><?php echo number_format($row['precio'], 2,'.', ','); ?></p>
+                    </div>
+                    <div class="portions">
+                        <span>Porciones</span>
+                        <p><?php echo $row['porciones']; ?></p>
+                    </div>
+                </div>
+                <button>+</button>
             </div>
-            <button>+</button>
-        </div>
+        <?php } ?>
     </section>
 
 
