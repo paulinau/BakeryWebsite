@@ -38,8 +38,9 @@ img
 
 .wrapper 
 {
-    width: 100%;
+    max-width: 960px;
     margin: 0 auto;
+    padding: 0 15px;
 }
 
 #search-container
@@ -47,15 +48,19 @@ img
     margin: 1em 0;
     font-size: 15px;
     font-family: Poppins, sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 #search-container input
 {
     border: none;
     background-color: transparent;
-    width: 40%;
+    width: 100%;
     border-bottom: 2px solid #110f28;
     padding: 0.5em 0.3em;
+    margin-bottom: 0.5em;
 }
 
 #search-container input:focus
@@ -72,7 +77,13 @@ img
     color: #fff;
     border-radius: 5px;
     margin: 0.5em;
+    order: 1;
 }
+
+#buttons {
+    display: flex;
+    flex-wrap: wrap;
+  }
 
 .button-value
 {
@@ -82,6 +93,9 @@ img
     background-color: transparent;
     color: #BF245D;
     cursor: pointer;
+    margin-right: 0.5em;
+    margin-bottom: 0.5em;
+    order: 2;
 }
 
 .active
