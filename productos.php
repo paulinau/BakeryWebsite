@@ -4,38 +4,13 @@
     $db = new Database();
     $con = $db->conectar();
 
-    $id = isset($_GET['id']) ? $_GET['id'] : '';
-    $token = isset($_GET['token_tmp']) ? $_GET['token_tmp'] : '';
+    $sql = $con->prepare("SELECT id, nombre, descripcion, precio, porciones, id_categoria FROM productos WHERE activo=1");
+    $sql->execute();
+    $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 
-    if($id == '' || $token == '')
-    {
-        echo 'Error al procesar la peticion';
-        exit;
-    }
-    else
-    {
-        $token_tmp = hash_hmac('sha1', $id, KEY_TOKEN);
+    //session_destroy();
 
-        //Valida si el token del usuario es el mismo que el que se genera
-        if($token == $token_tmp)
-        {
-            $sql = $con->prepare("SELECT count(id) FROM productos WHERE id=? AND activo=1 LIMIT 1");
-            $sql->execute([$id]);
-
-            if($sql->fetchColumn() > 0)
-            {
-                $sql = $con->prepare("SELECT id, nombre, descripcion, precio, porciones, id_categoria FROM productos WHERE activo=1");
-                $sql->execute([$id]);
-                $row = $sql ->fetch(PDO::FETCH_ASSOC);
-            }
-        }
-        else
-        {
-            echo 'Error al procesar la peticion';
-            exit;
-        }
-    }
-
+    print_r($_SESSION);
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +36,7 @@
                 <li><a href="productos.php">Productos</a></li>
                 <li><a href="sucursales.html">Sucursales</a></li>
                 <li><a href="iniciar-sesion.html">Iniciar sesión</a></li>
-                <li><a href="carrito.html"><img src="img/carrito.png"></a></li>
+                <li><a href="carrito.php"><img src="img/carrito.png"><span id="num_cart" class="badge bg-secondary"><?php echo $num_cart; ?></span></a></li>
             </ul>
         </header>
     </section>
@@ -115,7 +90,7 @@
                             <p><?php echo $row['porciones']; ?></p>
                         </div>
                     </div>
-                    <button onclick="addProducto(<?php echo $id; ?>, '<?php echo $token_tmp; ?>')">+</button>
+                    <button onclick="addProducto(<?php echo $row['id']; ?>, '<?php echo hash_hmac('sha1', $row['id'], KEY_TOKEN); ?>')">+</button>
                 </div>
             <?php } ?>
         </div>
