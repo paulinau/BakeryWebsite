@@ -48,7 +48,7 @@ function filterProducts() {
 
 function addProducto(id, token)
 {
-    let url = 'carrito.php';
+    let url = 'extras/carrito.php';
     let formData = new FormData();
     formData.append('id', id);
     formData.append('token', token);

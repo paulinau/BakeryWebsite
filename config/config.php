@@ -1,5 +1,6 @@
 <?php
     define("KEY_TOKEN", "ABC123*");
+    define("MONEDA", "$");
 
     session_start();
 

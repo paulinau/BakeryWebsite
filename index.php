@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="css/add_cart.css">
     <link rel="stylesheet" href="css/shop_products.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
 </head>
 <body>
     <section class="section">
@@ -26,7 +25,7 @@
                 <li><a href="productos.php">Productos</a></li>
                 <li><a href="sucursales.php">Sucursales</a></li>
                 <li><a href="iniciar-sesion.html">Iniciar sesión</a></li>
-                <li><a href="carrito.php"><img src="img/carrito.png"><span id="num_cart" class="badge bg-secondary"><?php echo $num_cart; ?></span></a></li>
+                <li><a href="checkout.php"><img src="img/carrito.png"><span id="num_cart" class="badge bg-secondary"><?php echo $num_cart; ?></span></a></li>
             </ul>
         </header>
 

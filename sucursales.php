@@ -24,7 +24,7 @@
                 <li><a href="productos.php">Productos</a></li>
                 <li><a href="sucursales.php">Sucursales</a></li>
                 <li><a href="iniciar-sesion.html">Iniciar sesión</a></li>
-                <li><a href="carrito.php"><img src="img/carrito.png"><span id="num_cart" class="badge bg-secondary"><?php echo $num_cart; ?></span></a></li>
+                <li><a href="checkout.php"><img src="img/carrito.png"><span id="num_cart" class="badge bg-secondary"><?php echo $num_cart; ?></span></a></li>
             </ul>
         </header>
     </section>
