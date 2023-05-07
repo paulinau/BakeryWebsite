@@ -46,7 +46,7 @@
                     <h2>Repostería Fina y de alta calidad para esos momentos tan dulces y especiales.<br><br><span id="title"><?php echo $row['nombre']; ?></span></h2>
                     <p id="description"><?php echo $row['descripcion']; ?></p>
                     <p><span id="detalles"><?php echo MONEDA . $row['precio'] . "  -  " . $row['porciones'] . " porciones."; ?></span></p>
-                    <button id="idProducto">
+                    <button class="agregar-carrito" data-id="<?php echo $row['id']; ?>" data-hash="<?php echo hash_hmac('sha1', $row['id'], KEY_TOKEN); ?>">
                         <div class="svg-wrapper">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16"> 
                                 <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/> 
@@ -122,84 +122,7 @@
                 </button>
             </div>
         </div>
-
-        <div class="shop-container">
-            <div class="box">
-                <div class="box-img">
-                    <img src="img/products/rebanada-zanahoria.png">
-                </div>
-            
-                <div class="stars">
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star-half' ></i>
-                </div>
-                <h4>Zanahoria</h4>
-                <span class="price">$ 200</span>
-                <button>
-                    <div class="svg-wrapper">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16"> 
-                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/> 
-                        </svg> 
-                    </div>
-                    <span>Agregar al carrito</span>
-                </button>
-            </div>
-        </div>
-
-        <div class="shop-container">
-            <div class="box">
-                <div class="box-img">
-                    <img src="img/products/rebanada-fresa.png">
-                </div>
-            
-                <div class="stars">
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star-half' ></i>
-                </div>
-                <h4>Alemán</h4>
-                <span class="price">$ 180</span>
-                <button>
-                    <div class="svg-wrapper">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16"> 
-                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/> 
-                        </svg> 
-                    </div>
-                    <span>Agregar al carrito</span>
-                </button>
-            </div>
-        </div>
-
-        <div class="shop-container">
-            <div class="box">
-                <div class="box-img">
-                    <img src="img/products/rebanada-zanahoria.png">
-                </div>
-            
-                <div class="stars">
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star-half' ></i>
-                </div>
-                <h4>Zanahoria</h4>
-                <span class="price">$ 200</span>
-                <button>
-                    <div class="svg-wrapper">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16"> 
-                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/> 
-                        </svg> 
-                    </div>
-                    <span>Agregar al carrito</span>
-                </button>
-            </div>
-        </div>
+        
     </section>
 
     <footer class="foot">
@@ -242,18 +165,20 @@
             details.innerHTML = "$" + price + " - " + portions + " porciones";
         }
 
-        // Obtiene la referencia del elemento por su ID
-        let id_producto = document.getElementById('idProducto');
+        let btnAgregar = document.getElementsByClassName('agregar-carrito');
 
-        // Agrega el evento onclick usando addEventListener
-        id_producto.addEventListener('click', function() {
-            // Obtiene el ID del producto
-            let id = <?php echo $row['id']; ?>;
-            // Obtiene el hash HMAC usando el ID del producto y la clave secreta
-            let hash = '<?php echo hash_hmac('sha1', $row['id'], KEY_TOKEN); ?>';
-            // Llama a la función addProducto con el ID y el hash HMAC como argumentos
-            addProducto(id, hash);
-        });
+        for (let i = 0; i < btnAgregar.length; i++) {
+            // Obtiene el ID del producto y el hash HMAC usando los atributos de datos del botón
+            let id = btnAgregar[i].getAttribute('data-id');
+            let hash = btnAgregar[i].getAttribute('data-hash');
+
+            // Agrega el evento onclick al botón
+            btnAgregar[i].addEventListener('click', function() {
+                // Llama a la función addProducto con el ID y el hash HMAC como argumentos
+                addProducto(id, hash);
+            });
+        }
+
     </script>
 </body>
 </html>
