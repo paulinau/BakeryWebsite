@@ -82,7 +82,7 @@
                     </div>
                     <div class="card-details">
                         <div class="price">
-                            <span>Price</span>
+                            <span>Precio</span>
                             <p><?php echo number_format($row['precio'], 2,'.', ','); ?></p>
                         </div>
                         <div class="portions">

@@ -82,7 +82,7 @@ header ul li a
 {
     color: #000;
     font-size: 1.4em;
-    line-height: 1.4em;
+    line-height: 1; /*1.4*/
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
 }
@@ -110,11 +110,11 @@ header ul li a
 {
     color: #000;
     font-family: 'Quicksand', sans-serif;
-    font-size: 1.3em;
+    font-size: 1.2em;
     font-weight: 400;
     float: left;
-    padding-top: 20px;
-    padding-right: 40%;
+    /*padding-top: 20px;*/
+    padding-right: 30%;
 }
 
 .content .imgBox

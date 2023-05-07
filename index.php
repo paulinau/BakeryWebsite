@@ -1,5 +1,16 @@
 <?php
     require 'config/config.php';
+    require 'config/database.php';
+    $db = new Database();
+    $con = $db->conectar();
+
+    $sql = $con->prepare("SELECT id, nombre, descripcion, precio, porciones, id_categoria FROM productos WHERE activo=1 AND id<=4");
+    $sql->execute();
+    $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+    //session_destroy();
+
+    //print_r($_SESSION);
 ?>    
 
 <!DOCTYPE html>
@@ -30,29 +41,48 @@
         </header>
 
         <div class="content">
-            <div class="textBox">
-                <h2>Repostería Fina y de alta calidad para esos momentos tan dulces y especiales.<br><br><span id="title">Selva Negra</span></h2>
-                <p>Lorem ipsum lor sit amet, consectetur adipiscing elit. Donec ornare eget velit vel finibus. Etiam sed dui non erat vestibulum iaculis quis non est. <br><span>$230</span></p>
-                <button>
-                    <div class="svg-wrapper">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16"> 
-                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/> 
-                        </svg> 
-                    </div>
-                    <span>Agregar al carrito</span>
-                </button>
-            </div>
+            <?php if (!empty($resultado)) { $row = $resultado[0]; ?>
+                <div class="textBox" id="detalles-producto">
+                    <h2>Repostería Fina y de alta calidad para esos momentos tan dulces y especiales.<br><br><span id="title"><?php echo $row['nombre']; ?></span></h2>
+                    <p id="description"><?php echo $row['descripcion']; ?></p>
+                    <p><span id="detalles"><?php echo MONEDA . $row['precio'] . "  -  " . $row['porciones'] . " porciones."; ?></span></p>
+                    <button id="idProducto">
+                        <div class="svg-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16"> 
+                                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/> 
+                            </svg> 
+                        </div>
+                        <span>Agregar al carrito</span>
+                    </button>
+                </div>
 
-            <div class="imgBox">
-                <img src="img/products/pastel.png" alt="pastel" class="nuevos">
-            </div>
+                <div class="imgBox">
+                    <?php 
+                        $id = $row['id_categoria'];
+                        $imagen = "img/products/" . $id . "/" . strtolower($row['nombre']) . ".png";
+
+                        if(!file_exists($imagen))
+                        {
+                            $imagen = "img/products/default.png";
+                        }    
+                    ?>
+                    <img src="<?php echo $imagen; ?>" class="nuevos">
+                </div>
+                <?php } ?>
         </div>
 
         <ul class="thumb">
-            <li><img src="img/products/pastel.png" onclick="imgSlider('img/products/pastel.png');changeTitle(0)"></li>
-            <li><img src="img/products/pay-fresa.png" onclick="imgSlider('img/products/pay-fresa.png');changeTitle(1)"></li>
-            <li><img src="img/products/waffle.png" onclick="imgSlider('img/products/waffle.png');changeTitle(2)"></li>
-            <li><img src="img/products/bebida-fresa.png" onclick="imgSlider('img/products/bebida-fresa.png');changeTitle(3)"></li>
+            <?php foreach ($resultado as $row) {
+                $id = $row['id_categoria'];
+                $imagen = "img/products/" . $id . "/" . strtolower($row['nombre']) . ".png";
+
+                if(!file_exists($imagen))
+                {
+                    $imagen = "img/products/default.png";
+                } 
+            ?>
+            <li><img src="<?php echo $imagen; ?>" onclick="imgSlider('<?php echo $imagen; ?>'); changeProduct('<?php echo $row['nombre']; ?>', '<?php echo $row['descripcion']; ?>', '<?php echo $row['precio']; ?>', '<?php echo $row['porciones']; ?>'); "></li>
+            <?php } ?>
         </ul>
 
         <ul class="sci">
@@ -200,5 +230,30 @@
     </footer>
 
     <script type="text/javascript" src="js/script_index.js"></script>
+    <script type="text/javascript" src="js/script_productos.js"></script>
+    <script>
+        function changeProduct(name, description, price, portions) {
+            let nombre = document.getElementById('title');
+            let descripcion = document.getElementById('description');
+            let details = document.getElementById('detalles');
+
+            nombre.innerHTML = name;
+            descripcion.innerHTML = description;
+            details.innerHTML = "$" + price + " - " + portions + " porciones";
+        }
+
+        // Obtiene la referencia del elemento por su ID
+        let id_producto = document.getElementById('idProducto');
+
+        // Agrega el evento onclick usando addEventListener
+        id_producto.addEventListener('click', function() {
+            // Obtiene el ID del producto
+            let id = <?php echo $row['id']; ?>;
+            // Obtiene el hash HMAC usando el ID del producto y la clave secreta
+            let hash = '<?php echo hash_hmac('sha1', $row['id'], KEY_TOKEN); ?>';
+            // Llama a la función addProducto con el ID y el hash HMAC como argumentos
+            addProducto(id, hash);
+        });
+    </script>
 </body>
 </html>
