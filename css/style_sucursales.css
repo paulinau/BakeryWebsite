@@ -9,6 +9,10 @@
     box-sizing: border-box;
 }
 
+#num_cart {
+    font-size: 0.6em;
+}  
+
 section
 {
     margin: 0 60px 50px 60px;

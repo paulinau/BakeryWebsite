@@ -48,19 +48,20 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style_index.css">
     <link rel="stylesheet" href="css/style_sucursales.css">
+    <link rel="stylesheet" href="css/style_carrito.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Sucursales</title>
 </head>
 <body>
     <section>
         <header>
-            <a href="index.html"><img src="img/logo.png" alt="logo" class="logo"></a>
+            <a href="index.php"><img src="img/logo.png" alt="logo" class="logo"></a>
             <div class="toggle" onclick="toggleMenu();"></div>
             <ul class="navigation">
                 <li><a href="productos.php">Productos</a></li>
-                <li><a href="sucursales.html">Sucursales</a></li>
+                <li><a href="sucursales.php">Sucursales</a></li>
                 <li><a href="iniciar-sesion.html">Iniciar sesión</a></li>
-                <li><a href="carrito.php"><img src="img/carrito.png"></a></li>
+                <li><a href="carrito.php"><img src="img/carrito.png"><span id="num_cart" class="badge bg-secondary"><?php echo $num_cart; ?></span></a></li>
             </ul>
         </header>
     </section>
@@ -69,7 +70,7 @@
         <div class="foot-container">
             <div class="box">
                 <figure>
-                    <a href="index.html">
+                    <a href="index.php">
                         <img src="img/logo.png" alt="Pastelerías Elegance">
                     </a>
                 </figure>

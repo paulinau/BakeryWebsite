@@ -1,3 +1,7 @@
+<?php
+    require 'config/config.php';
+?>    
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -16,13 +20,13 @@
     <section class="section">
         <div class="circle"></div>
         <header>
-            <a href="index.html"><img src="img/logo.png" alt="logo" class="logo"></a>
+            <a href="index.php"><img src="img/logo.png" alt="logo" class="logo"></a>
             <div class="toggle" onclick="toggleMenu();"></div>
             <ul class="navigation">
                 <li><a href="productos.php">Productos</a></li>
-                <li><a href="sucursales.html">Sucursales</a></li>
+                <li><a href="sucursales.php">Sucursales</a></li>
                 <li><a href="iniciar-sesion.html">Iniciar sesión</a></li>
-                <li><a href="carrito.php"><img src="img/carrito.png"></a></li>
+                <li><a href="carrito.php"><img src="img/carrito.png"><span id="num_cart" class="badge bg-secondary"><?php echo $num_cart; ?></span></a></li>
             </ul>
         </header>
 
@@ -173,7 +177,7 @@
         <div class="foot-container">
             <div class="box">
                 <figure>
-                    <a href="index.html">
+                    <a href="index.php">
                         <img src="img/logo.png" alt="Pastelerías Elegance">
                     </a>
                 </figure>
