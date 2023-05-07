@@ -25,13 +25,14 @@
     max-width: 1200px;
     width: 100%;
     margin: auto;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
     padding: 45px 0;
 }
 
-.productsTitle h3
+.productsTitle
 {
     color: #000;
     font-size: 1.4em;
@@ -40,28 +41,34 @@
     font-weight: 500;
     align-items: center;
     text-align: center;
+    display: flex;
+    margin: auto;
 }
 
 .shop-container
 {
+    color: #fff;
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
     align-items: center;
 }
 
 .shop-container .box
 {
-    flex: 1 1 10rem;
+    flex: 1 1 calc(25% - 1rem);
     background: #BF245D;
+    color: #fff;
     padding: 20px;
     display: flex;
     text-align: center;
     flex-direction: column;
     align-items: center;
-    margin-top: 3rem;
+    margin-top: 5rem;
     border-radius: 0.5rem;
+    margin-right: 10px;
 }
 
 .shop-container .box .box-img
@@ -77,16 +84,6 @@
     height: 100%;
     object-fit: contain;
     border-radius: center;
-}
-
-.stars
-{
-    margin: 1rem 0 0.1rem;
-}
-
-.shop-container .box .stars .bx
-{
-    color: #F2EAD0;
 }
 
 .shop-container .box h4
@@ -106,7 +103,12 @@
     line-height: 1.2em;
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
-    margin: 0.2rem 0 0.5rem;
+    margin-top: 1rem;
+}
+
+.shop-container .box .portions
+{
+    margin-bottom: 1rem;
 }
 
 @media screen and (max-width: 1200px)
