@@ -111,6 +111,16 @@
     margin-bottom: 1rem;
 }
 
+.shop-container .box:hover 
+{
+    background-color: #000;
+}
+
+.shop-container .box:hover .box-img img {
+    transform: translateY(-10px); /* Levantamos la imagen 10px al hacer hover */
+}
+
+
 @media screen and (max-width: 1200px)
 {
     .productSection
