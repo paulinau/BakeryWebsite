@@ -64,7 +64,7 @@
     </section>
 
     <section>
-        <div class="container">
+        <div class="container" style="margin-top:150px; margin-bottom:150px;">
             <?php if(strlen($error) > 0) { ?>
                 <div class="row">
                     <div class="col">
